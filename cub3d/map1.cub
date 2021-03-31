@@ -1,0 +1,13 @@
+R 1000 500
+NO ./north.xpm
+SO ./south.xpm
+WE ./west.xpm
+EA ./east.xpm
+S ./sprite.xpm
+F 225,30,20
+C 0,191,255
+
+111111111
+100000001
+100000N01
+111111111
