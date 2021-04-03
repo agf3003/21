@@ -19,11 +19,15 @@ double put_ray(t_data *data, int color, float angle)
 	double distance;
 	x = data->player.y + 0.5;
 	y = data->player.x + 0.5;
-	while(data->map[(int)x][(int)y] != '1' && data->map[(int)x][(int)y] != '2')
+	while(1)
 	{
 		my_mlx_pixel_put(data, y * scale, x * scale, color);
 		x -= sin(angle + data->player.angle) / 100;
+		if (data->map[(int)x][(int)y] == '1' || data->map[(int)x][(int)y] == '2')
+			break;
 		y += cos(angle + data->player.angle) / 100;
+		if (data->map[(int)x][(int)y] == '1' || data->map[(int)x][(int)y] == '2')
+			break;
 	}
 	float dx;
 	dx = fabs(x - lround(x));
