@@ -155,6 +155,8 @@ int check_parameters(t_data *data)
 
 int ft_validity_check(t_data *data)
 {
+	int i;
+	i = 0;
 	if(check_player(data) != 0)
 		return(1);
 	if(data->res1 < 400 && data->res2 < 200)
@@ -163,5 +165,12 @@ int ft_validity_check(t_data *data)
 		return(1);
 	// if(check_map(data) != 0)
 	// 	return(1);
+	// check blanc lines 
+	// while(data->map[data->map_size - 1])
+	// {
+	// 	if(data->map[data->map_size - 1][i] != ' ')
+	// 		return(1);
+	// 	i++;
+	// }
 	return(0);
 }

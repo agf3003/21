@@ -6,7 +6,7 @@
 /*   By: bellan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 15:15:32 by bellan            #+#    #+#             */
-/*   Updated: 2021/03/31 20:35:59 by bellan           ###   ########.fr       */
+/*   Updated: 2021/04/03 14:18:31 by bellan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_data
 	int line_length;
 	int endian;
 	char wall_type;
+	int map_size;
 	int x;
 	int y;
 	int res1;

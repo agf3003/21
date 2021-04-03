@@ -1,0 +1,13 @@
+
+- use textures
+- sprite processing
+- screenshot save
+- leaks
+- полоски - ошибка
+- make compilation possible at home (mlx error?) - https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html#compilation-on-linux
+- blanc lines after parameters + 
+- check map = рядом с пробелом либо пробел, либо 1 (в 4х направлениях)
+- norminette
+
+bonus
+- use 2d image 

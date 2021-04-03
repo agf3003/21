@@ -25,18 +25,37 @@ double put_ray(t_data *data, int color, float angle)
 		x -= sin(angle + data->player.angle) / 100;
 		y += cos(angle + data->player.angle) / 100;
 	}
-	float orient;
-	orient = atan2(x - data->player.y - 0.5, y - data->player.x - 0.5); // + data->player.angle;
-	if (orient > M_PI)
-		orient -= 2 * M_PI;
-	else if (orient < - M_PI)
-		orient += 2 * M_PI;
-	if (orient > - M_PI_4 && orient < M_PI_4)
-		data->wall_type = 'N';
+	float dx;
+	dx = fabs(x - lround(x));
+	float dy;
+	dy = fabs(y - lround(y));
+	if (dx > dy)
+	{
+		if(y > data->player.x + 0.5)
+			data->wall_type = 'E';
+		else
+			data->wall_type = 'W';
+	}
+	else
+	{
+		if(x > data->player.y + 0.5)
+			data->wall_type = 'S';
+		else
+			data->wall_type = 'N';
+ 	}
+	// float orient;
+	// orient = atan2(x - data->player.y - 0.5, y - data->player.x - 0.5) * 180 / M_PI;
+	// orient = atan2(x - data->player.y - 0.5, y - data->player.x - 0.5); // + data->player.angle;
+	// if (orient > M_PI)
+	// 	orient -= 2 * M_PI;
+	// else if (orient < - M_PI)
+	// 	orient += 2 * M_PI;
+	// if (orient > - M_PI_4 && orient < M_PI_4)
+	// 	data->wall_type = 'N';
 	//else if (orient <  && orient > - M_PI)
 	//	data->wall_type = 'S';
-	else
-		data->wall_type = '0';
+	// else
+	// 	data->wall_type = '0';
 	distance = sqrt((x - data->player.y - 0.5) * (x - data->player.y - 0.5) + (y - data->player.x - 0.5) * (y - data->player.x - 0.5));
 	return (distance);
 }
@@ -54,6 +73,8 @@ void put_line(t_data *data, int number, double distance)
 		color = 0x00FF00;
 	else if (data->wall_type == 'S')
 		color = 0x0000FF;
+	else if (data->wall_type == 'W')
+		color = 0x000000;
 	else
 		color = 0xFF0000;
 	while (height >= 0)
@@ -269,7 +290,7 @@ int main(int argc, char **argv)
 	if (ft_validity_check(data) != 0)
 		{
 			ft_putstr_fd("invalid map\n", 1);
-			exit(0);
+			exit(1);
 		}
 	data->win = mlx_new_window(data->mlx, data->res1, data->res2, "Hello world!");
 	data->img = mlx_new_image(data->mlx, data->res1, data->res2);
