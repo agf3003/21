@@ -6,7 +6,7 @@
 #    By: bellan <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/30 19:18:50 by bellan            #+#    #+#              #
-#    Updated: 2021/04/03 17:10:35 by bellan           ###   ########.fr        #
+#    Updated: 2021/04/06 18:29:05 by bellan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM = rm -f
 $(NAME):$(OBJS)
 	$(MAKE) -C libft
 	$(CC) $(FLAGS) $(SRC) libft/libft.a -o $(NAME)
-	./$(NAME) map1.cub
+	./$(NAME) map.cub
 
 $(OBJS):cub3d.h
 

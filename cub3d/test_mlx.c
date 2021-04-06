@@ -31,8 +31,10 @@ double put_ray(t_data *data, int color, float angle)
 	}
 	float dx;
 	dx = fabs(x - lround(x));
+	data->indicator_dx = dx;
 	float dy;
 	dy = fabs(y - lround(y));
+	data->indicator_dy = dy;
 	if (dx > dy)
 	{
 		if(y > data->player.x + 0.5)
@@ -215,44 +217,40 @@ int move(int keycode, t_data *data)
 	{
 		if (check_obstacle(data, 'N') == 0)
 		{
-			data->player.y -= sin(data->player.angle);
-			data->player.x += cos(data->player.angle);
-			// data->player.y -= sin(data->player.angle) * (float)1 / 5;
-			// data->player.x += cos(data->player.angle) * (float)1 / 5;
+			// data->player.y -= sin(data->player.angle);
+			// data->player.x += cos(data->player.angle);
+			data->player.y -= sin(data->player.angle) * (float)1 / 5;
+			data->player.x += cos(data->player.angle) * (float)1 / 5;
 		}
 	}
 	else if (keycode == 0)
 	{
 		if (check_obstacle(data, 'W') == 0)
 		{
-			// data->player.y += cos(data->player.angle);
-			// data->player.x += sin(data->player.angle);
-			data->player.y -= cos(data->player.angle);
-			data->player.x -= sin(data->player.angle);
-			// data->player.y -= cos(data->player.angle) * (float)1 / 5;
-			// data->player.x -= sin(data->player.angle) * (float)1 / 5;
+			// data->player.y -= cos(data->player.angle);
+			// data->player.x -= sin(data->player.angle);
+			data->player.y -= cos(data->player.angle) * (float)1 / 5;
+			data->player.x -= sin(data->player.angle) * (float)1 / 5;
 		}
 	}
 	else if (keycode == 1 || keycode == 125)
 	{
 		if (check_obstacle(data, 'S') == 0)
 		{
-			data->player.y += sin(data->player.angle);
-			data->player.x -= cos(data->player.angle);
-			// data->player.y += sin(data->player.angle) * (float)1 / 5;
-			// data->player.x -= cos(data->player.angle) * (float)1 / 5;
+			// data->player.y += sin(data->player.angle);
+			// data->player.x -= cos(data->player.angle);
+			data->player.y += sin(data->player.angle) * (float)1 / 5;
+			data->player.x -= cos(data->player.angle) * (float)1 / 5;
 		}
 	}
 	else if (keycode == 2)
 	{
 		if (check_obstacle(data, 'E') == 0)
 		{
-			// data->player.y -= cos(data->player.angle);
-			// data->player.x -= sin(data->player.angle);
-			data->player.y += cos(data->player.angle);
-			data->player.x += sin(data->player.angle);
-			// data->player.y += cos(data->player.angle) * (float)1 / 5;
-			// data->player.x += sin(data->player.angle) * (float)1 / 5;
+			// data->player.y += cos(data->player.angle);
+			// data->player.x += sin(data->player.angle);
+			data->player.y += cos(data->player.angle) * (float)1 / 5;
+			data->player.x += sin(data->player.angle) * (float)1 / 5;
 		}
 	}
 	else if (keycode == 124)
